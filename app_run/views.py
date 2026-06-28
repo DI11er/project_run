@@ -2,6 +2,10 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from django.conf import settings
+
+
+
 # Create your views here.
 
 
@@ -9,9 +13,9 @@ from rest_framework import status
 def company_details_view(request):
     return Response(
         {
-            "company_name": "Кардио и Ко",
-            "slogan": "До магазина — прогулка. Обратно — интервальная тренировка.",
-            "contacts": "г. Пульсово, ул. 180 BPM, д. 60",
+            "company_name": settings.COMPANY_NAME,
+            "slogan": settings.SLOGAN,
+            "contacts": settings.CONTACTS,
         },
         status=status.HTTP_200_OK
     )
